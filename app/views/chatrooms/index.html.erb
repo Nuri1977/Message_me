@@ -1,22 +1,42 @@
-
-<div class="ui large menu">
-  <a class="active item">
-    Home
-  </a>
-  <a class="item">
-    Messages
-  </a>
-  <div class="right menu">
-    <div class="ui dropdown item">
-      Language <i class="dropdown icon"></i>
-      <div class="menu">
-        <a class="item">English</a>
-        <a class="item">Russian</a>
-        <a class="item">Spanish</a>
+<h4 class="ui center aligned medium icon header">
+  <i class="circular orange coffee icon"></i>
+  Say something
+</h4>
+<div class="ui two column grid">
+  <div class=" twelve wide column">
+    <div class="ui fluid raised card chatbox">
+      <div class="content">
+        <div class="ui feed">
+          <%= render @messages %>
+        </div>
+      </div>
+      <div class="extra content">
+        <%= form_for(@message, html: {class: "ui reply form", role: "form"}, url: message_path) do |f| %>
+         <div class="field">
+            <div class="ui fluid icon input">
+              <%= f.text_field :body %>
+              <%= f.button '<i class="bordered inverted orange edit icon"></i>'.html_safe %>
+            </div>
+          </div>
+        <% end %>
       </div>
     </div>
-    <div class="item">
-        <div class="ui primary button">Sign Up</div>
+  </div>
+  <div class=" four wide column">
+    <div class="ui fluid raised card chatbox">
+      <div class="content">
+        <div class="ui inverted vertical menu">
+          <a class="item active">
+            Home
+          </a>
+          <a class="item">
+            Messages
+          </a>
+          <a class="item">
+            Friends
+          </a>
+        </div>
+      </div>
     </div>
   </div>
 </div>
